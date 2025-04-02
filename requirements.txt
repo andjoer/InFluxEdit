@@ -1,0 +1,11 @@
+diffusers
+accelerate>=0.16.0
+torchvision
+transformers>=4.21.0
+ftfy
+tensorboard
+Jinja2
+peft
+wandb
+sentencepiece
+prodigyopt
