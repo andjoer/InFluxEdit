@@ -64,7 +64,7 @@ class FluxFillEditPipeline(FluxFillPipeline):
         callback_on_step_end: Optional[Callable[[int, int, Dict], None]] = None,
         callback_on_step_end_tensor_inputs: List[str] = ["latents"],
         max_sequence_length: int = 512,
-        mode: str = "fill",
+        mode: str = "mask",
     ):
         r"""
         Function invoked when calling the pipeline for generation.
@@ -222,7 +222,7 @@ class FluxFillEditPipeline(FluxFillPipeline):
             image = self.image_processor.preprocess(image, height=height, width=width)
             mask_image = self.mask_processor.preprocess(mask_image, height=height, width=width)
 
-            if mode == "fill":
+            if mode == "mask":
                 masked_image = image * (1 - mask_image)
             elif mode == "edit":
                 print("mode edit in pipeline")
