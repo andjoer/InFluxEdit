@@ -13,7 +13,7 @@ Concatenate the **input image** and **generated output image** side-by-side and 
 
 ![Spatial Concatenation](https://github.com/andjoer/InFluxEdit/raw/main/graphics/concat_spacial.png)
 
-### b) **Extra Channel Masking (New Approach)**
+### b) **Extra Channel Adaption**
 
 Feed only the **input image** to Flux Fill and use a white mask, but do not apply the mask on the input image itself (i.e., do not zero out masked pixel values as is standard with Flux Fill). This retains reference context and boosts output fidelity. Unlike ACE++, we do not fully finetune the model when changing the purpose of the channels.
 
