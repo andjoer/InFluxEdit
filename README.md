@@ -47,7 +47,7 @@ This work uses FLUX.1 Fill [dev], which is distributed under the [FLUX.1 [dev] N
 
 - **FLUX.1 Fill [dev]**: for cutting-edge image completion and inpainting.
 - **The Huggingface Team**: for the original dreambooth lora training script.
-- **ACE++**: for introducing the spatial concatenation approach for training.
+- **ACE++**: for exploring the adaption of the extra channels.
 - **Sebastian-Zok**: to our knowledge, the first to release a training script for Flux Fill LoRAs. This project borrows from his work.
 
 # InFluxEdit Training Script Documentation
