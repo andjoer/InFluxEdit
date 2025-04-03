@@ -225,7 +225,6 @@ class FluxFillEditPipeline(FluxFillPipeline):
             if mode == "mask":
                 masked_image = image * (1 - mask_image)
             elif mode == "edit":
-                print("mode edit in pipeline")
                 masked_image = image 
 
             masked_image = masked_image.to(device=device, dtype=prompt_embeds.dtype)

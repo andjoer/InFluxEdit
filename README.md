@@ -37,6 +37,36 @@ Feed only the **input image** to Flux Fill and use a white mask, but do not appl
 
 ---
 
+## Fill Circles Example
+
+This project includes scripts to easily download, prepare, and train on the synthetic "Fill Circles" dataset.
+
+**Steps:**
+
+1.  **Prepare the Dataset:**
+    First, run the preparation script. This will download the dataset (if not already present), combine the input/target images for spatial concatenation mode, and extract the prompts into individual `.txt` files.
+    ```bash
+    bash prep_fill_circles_ds.sh
+    ```
+    This script creates the `data/my_fill50k` directory containing `train_A` (input outlines), `train_B` (filled circles), `train_combined` (side-by-side images), and `prompts` for the spatial and edit modes.
+    Make sure to export your wandb and huggingface tokens before running the script.
+
+2.  **Choose a Training Mode and Run:**
+
+    *   **a) Spatial Concatenation Mode:**
+        This mode uses the side-by-side combined images (`train_combined`) and learns to fill the right half based on the left half and the prompt. Use the `train_circles_combined.sh` script.
+        ```bash
+        bash train_circles_combined.sh
+        ```
+
+    *   **b) Edit Mode:**
+        This mode uses the original outline image (`train_A`) as input and the filled circle image (`train_B`) as the target, applying a white mask internally. Use the `train_circles_edit.sh` script.
+        ```bash
+        bash train_circles_edit.sh
+        ```
+
+---
+
 ## 🎜️ License
 
 This work uses FLUX.1 Fill [dev], which is distributed under the [FLUX.1 [dev] Non-Commercial License](https://bfl.ml).

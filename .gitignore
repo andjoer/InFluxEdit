@@ -1,0 +1,22 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+wandb/
+data/
+
+.DS_Store
+
+venv/
+.venv/
+env/
+.env/
+ENV/
+env.bak/
+venv.bak/
+
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
