@@ -354,10 +354,6 @@ accelerate launch train_influxedit.py \
 
 ---
 
-## Conclusion
-
-**train_influxedit.py** provides a flexible and configurable training pipeline for fine-tuning image editing models with LoRA adapters using FLUX.1 Fill [dev]. By choosing between mask (fill) and edit modes, configuring synthetic split mask generation, and specifying data directories, dataset columns, and training hyperparameters, users can tailor the training process to a wide range of editing tasks—all without full model finetuning.
-
 Happy training!
 
 
