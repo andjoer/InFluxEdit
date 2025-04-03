@@ -37,7 +37,33 @@ Feed only the **input image** to Flux Fill and use a white mask, but do not appl
 
 ---
 
-## Fill Circles Example
+## 📦 Dataset Structure
+
+The dataset organization depends on the training mode:
+
+### Spatial Concatenation Mode
+- Input images are pre-concatenated with target images side-by-side into single images
+- Training data:  contains the concatenated images
+- Validation data: follows same concatenated format
+- Optional prompts: directory with text files containing per-image prompts.
+- Optional masks: directory with mask images (mandatory if not using `--use_split_mask`)
+
+### Edit Mode  
+- Input and target images are kept separate
+- Training data: 
+  - input images
+  - contains corresponding target images
+- Validation data:
+  - input images
+- Optional prompts: directory with text files containing per-image prompts.
+
+### Important Notes
+- For inference, both modes expect only input images (no pre-concatenation needed)
+- The inference scripts handle spatial concatenation internally when needed
+- Prompts are required if `--instance_prompt` is not defined
+- Masks are only used in concatenation mode when `--use_split_mask` is disabled
+
+## 📦 Example Dataset
 
 This project includes scripts to easily download, prepare, and train on the synthetic "Fill Circles" dataset.
 
