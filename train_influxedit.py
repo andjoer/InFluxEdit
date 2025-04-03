@@ -1783,7 +1783,13 @@ def main(args):
                 raise ValueError(f"unexpected load model: {model.__class__}")
 
         # Load LoRA weights
-        lora_state_dict = FluxFillEditPipeline.lora_state_dict(input_dir)
+        x_embedder_path = os.path.join(input_dir, "flux_x_embedder.safetensors")
+
+        if os.path.exists(x_embedder_path):
+            lora_dir = os.path.join(input_dir, "pytorch_lora_weights.safetensors")
+        else: 
+            lora_dir = input_dir
+        lora_state_dict = FluxFillEditPipeline.lora_state_dict(lora_dir)
 
         # Load LoRA into Transformer
         if transformer_ is not None:
@@ -1802,7 +1808,6 @@ def main(args):
                     )
 
             # Load the separately saved x_embedder weights
-            x_embedder_path = os.path.join(input_dir, "flux_x_embedder.safetensors")
             if os.path.exists(x_embedder_path):
                 try:
                     x_embedder_state_dict = safetensors.torch.load_file(x_embedder_path)
