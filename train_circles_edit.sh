@@ -25,7 +25,7 @@ python train_influxedit.py \
   --max_train_steps=100000 \
   --validation_prompt="violet circle with orange background" \
   --validation_image="data/my_fill50k/test_A/40000.png" \
-  --validation_steps=2 \
+  --validation_steps=50 \
   --validation_width=256 \
   --validation_height=256 \
   --num_validation_images=2 
