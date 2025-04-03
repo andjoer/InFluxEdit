@@ -35,6 +35,12 @@ Feed only the **input image** to Flux Fill and use a white mask, but do not appl
 2. **Training `x_embedder` is optional** – it may help in some tasks but doesn’t harm performance.
 3. **Spatial concatenation leads to lower fidelity** results compared to processing the unmasked input.
 
+
+Here's a sample before and after result using the extra channel adaption method:
+
+![Channel Adaption Result](https://github.com/andjoer/InFluxEdit/raw/main/graphics/result_channel_adaption.png)
+
+
 ---
 
 ## 📦 Dataset Structure
