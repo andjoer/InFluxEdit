@@ -25,7 +25,8 @@ draw_mask = ImageDraw.Draw(mask)
 draw_mask.rectangle([0, 0, canvas_width // 2, canvas_height], fill="black")
 
 # Setup and configure the FluxFill pipeline as before
-pipe = FluxFillPipeline.from_pretrained("black-forest-labs/FLUX.1-Fill-dev").to("mps")
+device = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
+pipe = FluxFillPipeline.from_pretrained("black-forest-labs/FLUX.1-Fill-dev").to(device)
 
 pipe.load_lora_weights("flux-spacial_circles-lora/checkpoint-500/pytorch_lora_weights.safetensors")
 pipe.fuse_lora(lora_scale=1.0)
