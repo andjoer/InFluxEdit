@@ -23,9 +23,8 @@ canvas.paste(input_resized, (0, 0))
 mask = Image.new("RGB", (canvas_width, canvas_height), "white")
 draw_mask = ImageDraw.Draw(mask)
 draw_mask.rectangle([0, 0, canvas_width // 2, canvas_height], fill="black")
-mask.save("debug_mask.png")  # Save the mask for debugging
 
-# Setup and configure the FluxFill pipeline as before
+# Setup and configure the FluxFill pipeline
 device = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
 pipe = FluxFillPipeline.from_pretrained("black-forest-labs/FLUX.1-Fill-dev").to(device)
 
